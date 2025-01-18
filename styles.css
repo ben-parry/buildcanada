@@ -1,0 +1,245 @@
+/* Base Variables */
+:root {
+    --primary-blue: #1B2B3A;
+    --accent-blue: #003D66;
+    --text-dark: #292929;
+    --background: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --subtle-red: rgba(255, 59, 48, 0.08);
+    --accent-red: rgba(255, 59, 48, 0.9);
+    --grid-major: rgba(0, 61, 102, 0.08);  /* Matches accent-blue but very subtle */
+    --grid-minor: rgba(0, 61, 102, 0.05);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+/* Blueprint Grid Background */
+.blueprint-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        /* Major grid lines */
+        linear-gradient(var(--grid-major) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+        /* Minor grid lines */
+        linear-gradient(var(--grid-minor) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+    background-size: 
+        50px 50px,
+        50px 50px,
+        10px 10px,
+        10px 10px;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Typography */
+h1, h2 {
+    color: var(--primary-blue);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 4.5rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-top: 4rem;
+    letter-spacing: -0.02em;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+
+/* Hero Section */
+.hero {
+    margin: 6rem 0 8rem;
+}
+
+.hero-subtext {
+    font-size: 1.75rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+    margin-bottom: 4rem;
+    line-height: 1.3;
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    background-color: var(--light-gray);
+    margin: 3rem 0;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+/* Policy List */
+.policy-list {
+    list-style: none;
+    margin: 2rem 0 3rem;
+}
+
+.policy-list li {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+}
+
+.policy-list li::before {
+    content: "•";
+    color: var(--accent-blue);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.policy-list li:hover {
+    transform: translateX(10px);
+    color: var(--accent-blue);
+}
+
+/* Emphasis Text */
+.emphasis-text {
+    font-size: 1.4rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.emphasis-text.larger {
+    font-size: 1.6rem;
+    margin: 2rem 0;
+}
+
+/* Dramatic Heading */
+.dramatic-heading {
+    font-size: 3rem;
+    color: var(--accent-red);
+    margin-bottom: 2rem;
+}
+
+/* CTA Section */
+.cta-section {
+    margin: 4rem 0;
+    text-align: left;
+}
+
+.cta-header {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+
+.lets-go {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    margin-top: 4rem;
+    letter-spacing: -0.03em;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.lets-go:hover {
+    transform: translateX(20px);
+    color: var(--accent-red);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-subtext {
+        font-size: 1.5rem;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .cta-header {
+        font-size: 2.5rem;
+    }
+
+    .lets-go {
+        font-size: 3.5rem;
+    }
+
+    .emphasis-text {
+        font-size: 1.25rem;
+    }
+
+    .emphasis-text.larger {
+        font-size: 1.4rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .blueprint-grid {
+        display: none;
+    }
+    
+    body {
+        color: black;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
